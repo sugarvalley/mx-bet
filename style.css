@@ -1,0 +1,23 @@
+body {
+    position: relative;
+}
+
+#btn-log {
+    margin-right: 10px;
+}
+
+#a-sport {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+#a-live {
+    font-weight: bold;
+    color: white;
+}
+
+#a-esport {
+    font-weight: bold;
+    color: coral;
+}
+

@@ -8,7 +8,7 @@
     <link rel="icon" href="logo_mxx.png">
     <title>🏆 MX BET: Zakłady bukmacherskie</title>
 </head>
-<body>
+<body class="text-center bg-light">
 <!-- NAVBAR START-->
 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar-color">
     <a class="navbar-brand" href="index.php" id="nav-brand">MX BET</a>
@@ -27,52 +27,32 @@
                 <a class="nav-link" href="#" id="a-esport">ESPORT</a>
             </li>
         </ul>
-        <a role="button" href="login.php" class="btn btn-outline-primary" id="btn-log">Logowanie</a>
-        <a role="button" href="#" class="btn btn-info">Rejestracja</a>
     </div>
 </nav>
 <!-- NAVBAR END-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="sport.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>EURO: ŁĄCZY NAS PASJA</h2>
-                        <p>EMOCJE AŻ DO FINAŁU</p>
-                        <a role="button" href="#" class="btn btn-info">Pokaż więcej</a>
-                    </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="2.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>PAKIET POWITALNY 2000PLN</h2>
-                        <p>ZACZNIJ JUŻ TERAZ</p>
-                        <a role="button" href="#" class="btn btn-info">Pokaż więcej</a>
-                    </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="esport.jpg" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>ESPORT</h2>
-                        <p>DAJ SIĘ PORWAĆ</p>
-                        <a role="button" href="#" class="btn btn-info">Pokaż więcej</a>
-                    </div>
-            </div>
+<main class="form-signin">
+    <form>
+        <img class="mb-4" src="logo_mxx.png" alt="logo" width="100" height="100">
+        <h1 class="h3 mb-3 fw-normal">Zaloguj się</h1>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="Login">
+            <label for="floatingInput">Nazwa użytkownika</label>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Hasło">
+            <label for="floatingPassword">Hasło</label>
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Zapamiętaj mnie
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-4 mb-3">Nie masz konta?</p>
+        <a class="h5 mb-3" href="#">ZAREJESTRUJ SIĘ</a>
+        <p class="mt-5 mb-3 text-muted">&copy; MX BET 2021</p>
+    </form>
+</main>
 <!-- FOOTER -->
 <div class="card-footer text-center" id="footer-color">
     <div class="card-body">

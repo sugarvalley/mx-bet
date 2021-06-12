@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
+
+?>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -27,8 +37,14 @@
                 <a class="nav-link" href="#" id="a-esport">ESPORT</a>
             </li>
         </ul>
-        <a role="button" href="login.php" class="btn btn-outline-primary" id="btn-log">Logowanie</a>
-        <a role="button" href="#" class="btn btn-info">Rejestracja</a>
+        <?php if(!isset($_SESSION['username'])) : ?>
+        <a role="button" href="login.php" class="btn btn-outline-primary" id="btn-log">LOGOWANIE</a>
+        <a role="button" href="register.php" class="btn btn-info">REJESTRACJA</a>
+        <?php endif ?>
+        <?php  if(isset($_SESSION['username'])) : ?>
+            <button type="button" class="btn btn-outline-danger" disabled>Zalogowano jako <?php echo $_SESSION['username']; ?></button>
+            <a role="button" href="index_user.php?logout='1'" class="btn btn-danger">WYLOGUJ</a>
+        <?php endif ?>
     </div>
 </nav>
 <!-- NAVBAR END-->

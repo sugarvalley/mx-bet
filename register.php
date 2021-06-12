@@ -1,3 +1,4 @@
+<?php include('server.php'); ?>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -31,26 +32,38 @@
 </nav>
 <!-- NAVBAR END-->
 <main class="form-signin">
-    <form>
+    <form method="post" action="register.php">
+        <?php include('errors.php');?>
         <img class="mb-4" src="logo_mxx.png" alt="logo" width="100" height="100">
-        <h1 class="h3 mb-3 fw-normal">Zaloguj się</h1>
+        <h1 class="h3 mb-3 fw-normal">Zarejestruj się</h1>
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="Login">
+            <input type="text" class="form-control" id="floatingInput" placeholder="tenmaciek12" name="username" value="<?php echo $username; ?>">
             <label for="floatingInput">Nazwa użytkownika</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Hasło">
-            <label for="floatingPassword">Hasło</label>
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Maciej" name="fname">
+            <label for="floatingPassword">Imię</label>
+        </div>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="maciek69@example.com" name="email" value="<?php echo $email; ?>">
+            <label for="floatingInput">Adres email</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingInput" placeholder="***** ***" name="password_1">
+            <label for="floatingInput">Hasło</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingInput" placeholder="***** ***" name="password_2">
+            <label for="floatingInput">Powtórz hasło</label>
         </div>
         <div class="checkbox mb-3">
             <label>
-                <input type="checkbox" value="remember-me"> Zapamiętaj mnie
+                <input type="checkbox" value="bot-check" required> Nie jestem robotem 🤖
             </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="reg_user">Sign in</button>
         <p class="mt-4 mb-3">Masz już konto?</p>
-        <a class="h5 mb-3" href="#">ZALOGUJ SIĘ</a>
-        <p class="mt-5 mb-3 text-muted">&copy; MX BET 2021</p>
+        <a class="h5 mb-3" href="login.php">ZALOGUJ SIĘ</a>
     </form>
 </main>
 <!-- FOOTER -->

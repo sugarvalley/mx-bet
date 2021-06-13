@@ -45,5 +45,21 @@ if (isset($_GET['logout'])) {
             <?php endif ?>
         </div>
     </nav>
+
+    <!-- FOOTER -->
+    <div class="card-footer text-center" id="footer-color">
+        <div class="card-body">
+            <p class="card-text"><small class="text-muted">• © MX BET 2021 • WSZYSTKIE PRAWA ZASTRZEŻONE •</small></p>
+            <p class="card-text"><small class="text-muted"><a href="#">KIM JESTEŚMY?</a>&nbsp&nbsp&nbsp<a href="#">REGULAMIN</a>
+                    &nbsp&nbsp&nbsp<a href="#">JAK GRAĆ?</a>&nbsp&nbsp&nbsp<a href="#">FAQ</a>&nbsp&nbsp&nbsp<a href="#">
+                        ODPOWIEDZIALNA GRA</a>&nbsp&nbsp&nbsp<a href="#">DLA PRASY</a>&nbsp&nbsp&nbsp
+                    <a href="#">POLITYKA PRYWATNOŚCI</a>&nbsp&nbsp&nbsp<a href="#">PRACA</a>&nbsp&nbsp&nbsp
+                    <a href="#">OFERTA HANDLOWA</a>&nbsp&nbsp&nbsp<a href="#">WYNIKI</a></small></p>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

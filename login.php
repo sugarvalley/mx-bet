@@ -34,6 +34,11 @@
 <main class="form-signin">
     <form method="post" action="login.php">
         <?php include('errors.php'); ?>
+        <?php if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+        ?>
         <img class="mb-4" src="logo_mxx.png" alt="logo" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Zaloguj się</h1>
         <div class="form-floating">
@@ -44,7 +49,7 @@
             <input type="password" class="form-control" id="floatingPassword" placeholder="Hasło" name="password">
             <label for="floatingPassword">Hasło</label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" name="login_user">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="login_user">Zaloguj</button>
         <p class="mt-4 mb-3">Nie masz konta?</p>
         <a class="h5 mb-3" href="register.php">ZAREJESTRUJ SIĘ</a>
         <p class="mt-5 mb-3 text-muted">&copy; MX BET 2021</p>

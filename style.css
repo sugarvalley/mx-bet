@@ -71,3 +71,9 @@ body {
 #list-colors {
     background-color: #e5e5e5;
 }
+
+#values-list {
+    margin-left: 4.5rem;
+    color: #14213d;
+    font-weight: bold;
+}

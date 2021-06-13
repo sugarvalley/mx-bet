@@ -62,7 +62,19 @@ if (isset($_GET['logout'])) {
                         <?php include("select-sub-category.php")?>
                         <?php foreach ($subcategories as $subcategory) : ?>
                         <?php foreach ($subcategory as $labelvalue) : ?>
-                        <li><a href="#" class="link-dark rounded"><?php echo $labelvalue ?></a></li>
+                            <button class="btn-sm btn-sub-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="<?php echo "#" . $labelvalue . "-collapse"; ?>" aria-expanded="true" style="color: #474747">
+                            <?php echo $labelvalue; ?>
+                            </button>
+                                <div class="collapse show" id="<?php echo $labelvalue . "-collapse"; ?>">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                                        <?php include("select-sub-sub-category.php"); ?>
+                                        <?php foreach ($subsubcategories as $subsubcategory) : ?>
+                                        <?php foreach ($subsubcategory as $value) : ?>
+                                    <li><a href="#" class="link-dark rounded" id="values-list"><?php echo $value; ?></a></li>
+                                            <?php endforeach; ?>
+                                            <?php endforeach; ?>
+                                    </ul>
+                            </div>
                         <?php endforeach; ?>
                         <?php endforeach; ?>
                     </ul>

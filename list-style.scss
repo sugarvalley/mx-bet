@@ -7,14 +7,27 @@ html {
   height: -webkit-fill-available;
 }
 
-main {
+.main-content {
   display: flex;
-  flex-wrap: nowrap;
   height: 100vh;
   height: -webkit-fill-available;
-  max-height: 100vh;
+  background: #FFFFFF;
+}
+
+.main-filter {
+  display: flex;
+  height: 100vh;
+  height: -webkit-fill-available;
   overflow-x: auto;
   overflow-y: hidden;
+  background: #FFFFFF;
+}
+.main-results {
+  display: flex;
+  height: 100vh;
+  height: -webkit-fill-available;
+  overflow-x: auto;
+  overflow-y: auto;
   background: #FFFFFF;
 }
 

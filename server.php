@@ -54,7 +54,7 @@ if (isset($_POST['reg_user'])) {
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "Jesteś zalogowany!";
-        header('location: index_user.php');
+        header('location: view/index_user.php');
     }
 }
 
@@ -76,7 +76,7 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Jesteś zalogowany";
-            header('location: index_user.php');
+            header('location: view/index_user.php');
         }else {
             array_push($errors, "Nieprawidłowa nazwa użytkownika lub hasło");
         }

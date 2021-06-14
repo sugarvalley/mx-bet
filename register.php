@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo_mxx.png">
+    <link rel="icon" href="images/logo_mxx.png">
     <title>🏆 MX BET: Zakłady bukmacherskie</title>
 </head>
 <body class="text-center bg-light">
@@ -34,8 +34,9 @@
 <main class="form-signin">
     <form method="post" action="register.php">
         <?php include('errors.php');?>
-        <img class="mb-4" src="logo_mxx.png" alt="logo" width="100" height="100">
+        <img class="mb-4" src="images/logo_mxx.png" alt="logo" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Utwórz konto</h1>
+        <h3 class="h5 mb-3">i otrzymaj 100zł na start! 💌 </h3>
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="tenmaciek12" name="username" value="<?php echo $username; ?>">
             <label for="floatingInput">Nazwa użytkownika</label>

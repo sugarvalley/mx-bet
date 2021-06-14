@@ -11,9 +11,14 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
+if (isset($_GET['choice'])) {
+    $choices = [];
+    $choices[] = $_GET['choice'];
+}
+
 ?>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,30 +54,35 @@ if (isset($_GET['logout'])) {
     </nav>
     <main>
     <div class="flex-shrink-0 p-3" style="width: 280px;" id="list-colors">
+        <form action="index_user.php" method="get">
         <ul class="list-unstyled ps-0">
             <?php include("select-category.php"); ?>
             <?php foreach ($categories as $category) : ?>
             <?php foreach ($category as $columnvalue) : ?>
             <li class="mb-1">
-                <button class="btn btn-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="<?php echo "#" . $columnvalue . "-collapse"; ?>" aria-expanded="true">
+                <a class="btn btn-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="<?php echo "#" . $columnvalue . "-collapse"; ?>" aria-expanded="false" aria-controls="<?php echo $columnvalue . "-collapse"; ?>">
                     <?php echo $columnvalue; ?>
-                </button>
-                <div class="collapse show" id="<?php echo $columnvalue . "-collapse"; ?>">
+                </a>
+                <div class="collapse" id="<?php echo $columnvalue . "-collapse"; ?>">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <?php include("select-sub-category.php")?>
                         <?php foreach ($subcategories as $subcategory) : ?>
                         <?php foreach ($subcategory as $labelvalue) : ?>
-                            <button class="btn-sm btn-sub-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="<?php echo "#" . $labelvalue . "-collapse"; ?>" aria-expanded="true" style="color: #474747">
+                            <a class="btn-sm btn-sub-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="<?php echo "#" . $columnvalue . '-' . $labelvalue . "-collapse"; ?>" aria-expanded="false" aria-controls="<?php echo $labelvalue . "-collapse"; ?>" style="color: #474747">
                             <?php echo $labelvalue; ?>
-                            </button>
-                                <div class="collapse show" id="<?php echo $labelvalue . "-collapse"; ?>">
+                            </a>
+                                <div class="collapse" id="<?php echo $columnvalue . '-' . $labelvalue . "-collapse"; ?>">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
                                         <?php include("select-sub-sub-category.php"); ?>
-                                        <?php foreach ($subsubcategories as $subsubcategory) : ?>
-                                        <?php foreach ($subsubcategory as $value) : ?>
-                                    <li><a href="#" class="link-dark rounded" id="values-list"><?php echo $value; ?></a></li>
-                                            <?php endforeach; ?>
-                                            <?php endforeach; ?>
+                                                <div class="checkbox mb-3" id="values-list">
+                                                        <?php foreach ($subsubcategories as $subsubcategory) : ?>
+                                                        <?php foreach ($subsubcategory as $value) : ?>
+                                                            <li>
+                                                                <input type="checkbox" name="choice[]" value="<?php echo $columnvalue . '_' . $labelvalue . '_' . $value; ?>"><?php echo " " . $value; ?>
+                                                            </li>
+                                                            <?php endforeach; ?>
+                                                            <?php endforeach; ?>
+                                                </div>
                                     </ul>
                             </div>
                         <?php endforeach; ?>
@@ -82,50 +92,19 @@ if (isset($_GET['logout'])) {
             </li>
             <?php endforeach; ?>
             <?php endforeach; ?>
-<!--            <li class="mb-1">-->
-<!--                <button class="btn btn-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="#dashboard-collapse" aria-expanded="false">-->
-<!--                    Dashboard-->
-<!--                </button>-->
-<!--                <div class="collapse" id="dashboard-collapse">-->
-<!--                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">-->
-<!--                        <li><a href="#" class="link-dark rounded">Overview</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Weekly</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Monthly</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Annually</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="mb-1">-->
-<!--                <button class="btn btn-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="#orders-collapse" aria-expanded="false">-->
-<!--                    Orders-->
-<!--                </button>-->
-<!--                <div class="collapse" id="orders-collapse">-->
-<!--                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">-->
-<!--                        <li><a href="#" class="link-dark rounded">New</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Processed</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Shipped</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Returned</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--            <li class="border-top my-3"></li>-->
-<!--            <li class="mb-1">-->
-<!--                <button class="btn btn-toggle align-items-center rounded collapsed" data-toggle="collapse" data-target="#account-collapse" aria-expanded="false">-->
-<!--                    Account-->
-<!--                </button>-->
-<!--                <div class="collapse" id="account-collapse">-->
-<!--                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">-->
-<!--                        <li><a href="#" class="link-dark rounded">New...</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Profile</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Settings</a></li>-->
-<!--                        <li><a href="#" class="link-dark rounded">Sign out</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--        </ul>-->
-    </div>
+            </ul>
+            <button type="submit" class="btn-dark btn-sm">POKAŻ</button>
+            </form>
+        </div>
+        <div>
+            <?php
+            if (isset($_GET['choice'])) {
+                include("filter.php") ;
+            }
+            ?>
+        </div>
     </main>
-    <!-- FOOTER -->
+            <!-- FOOTER -->
     <div class="card-footer text-center" id="footer-color">
         <div class="card-body">
             <p class="card-text"><small class="text-muted">• © MX BET 2021 • WSZYSTKIE PRAWA ZASTRZEŻONE •</small></p>

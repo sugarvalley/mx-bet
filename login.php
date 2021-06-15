@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="pl">
 <head>
-    <?php include("view-resources/meta-head.php");?>
+    <?php include("meta-head.php");?>
 </head>
 <body class="text-center bg-light">
 <!-- NAVBAR START-->
@@ -50,7 +50,7 @@
         <p class="mt-5 mb-3 text-muted">&copy; MX BET 2021</p>
     </form>
 </main>
-<?php include("view-resources/footer.php");?>
-<?php include("view-resources/scripts.php");?>
+<?php include("footer.php");?>
+<?php include("scripts.php");?>
 </body>
 </html>

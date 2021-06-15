@@ -56,7 +56,7 @@ if (isset($_GET['logout'])) {
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="sport.jpg" alt="First slide">
+                <img class="d-block w-100" src="images/sport.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>EURO: ŁĄCZY NAS PASJA</h2>
                         <p>EMOCJE AŻ DO FINAŁU</p>
@@ -64,7 +64,7 @@ if (isset($_GET['logout'])) {
                     </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="2.jpg" alt="Second slide">
+                <img class="d-block w-100" src="images/2.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>PAKIET POWITALNY 2000PLN</h2>
                         <p>ZACZNIJ JUŻ TERAZ</p>
@@ -72,7 +72,7 @@ if (isset($_GET['logout'])) {
                     </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="esport.jpg" alt="Third slide">
+                <img class="d-block w-100" src="images/esport.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h2>ESPORT</h2>
                         <p>DAJ SIĘ PORWAĆ</p>

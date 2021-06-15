@@ -11,16 +11,15 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
 }
 
-if (isset($_GET['choice'])) {
-    $choices = [];
-    $choices[] = $_GET['choice'];
-}
-
-if (isset($_GET['id'])) {
-    $bets = [];
-    $bets[] = $_GET['id'];
-}
-
+//if (isset($_POST['choice'])) {
+//    $choices = [];
+//    $choices[] = $_POST['choice'];
+//}
+//
+//if (isset($_POST['id'])) {
+//    $bets = [];
+//    $bets[] = $_POST['id'];
+//}
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +32,7 @@ if (isset($_GET['id'])) {
     <main class="main-content">
         <main class="main-filter">
     <div class="flex-shrink-0 p-3" style="width: 400px;" id="list-colors">
-        <form action="index_user.php" method="get">
+        <form action="index_user.php" method="post">
         <ul class="list-unstyled ps-0">
             <li class="mb-1">
                 <h3 class="h3 mb-3">AKTUALNE ZAKŁADY ✨</h3>
@@ -55,16 +54,19 @@ if (isset($_GET['id'])) {
                             </a>
                                 <div class="collapse" id="<?php echo $columnvalue . '-' . $labelvalue . "-collapse"; ?>">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                                        <?php include("select-sub-sub-category.php"); ?>
-                                                <div class="checkbox mb-3" id="values-list">
+
+                                            <?php include("select-sub-sub-category.php"); ?>
                                                         <?php foreach ($subsubcategories as $subsubcategory) : ?>
+                                                        <div class="checkbox mb-3" id="values-list">
                                                         <?php foreach ($subsubcategory as $value) : ?>
+
                                                             <li>
                                                                 <input type="checkbox" name="choice[]" value="<?php echo $columnvalue . '_' . $labelvalue . '_' . $value; ?>"><?php echo " " . $value; ?>
                                                             </li>
                                                             <?php endforeach; ?>
+                                                            </div>
                                                             <?php endforeach; ?>
-                                                </div>
+
                                     </ul>
                             </div>
                         <?php endforeach; ?>
@@ -82,14 +84,18 @@ if (isset($_GET['id'])) {
             <main class="main-results">
         <div class="flex-shrink-0 p-3" style="width: 1200px;">
             <?php
-            if (isset($_GET['choice'])) {
-                echo "<form action='index_user.php' method='get'>
+            if (isset($_POST['choice'])) {
+                echo "<form action='index_user.php' method='POST'>
                 <div class='align-items-center'>";
                 include("filter.php");
                 echo "</div></form>";
-            } else { if (isset($_GET['id'])) {
-                include_once("isbalance.php");
+            } else { if (isset($_POST['id'])) {
+                include("isbalance.php");
             } else {
+                if (isset($_POST['stake'])) {
+                    echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
+                    echo "<h3 class='h3 mb-3'>Nie możesz obstawić kwoty bez zaznaczenia żadnego zakładu</h3>";
+                }
                 echo "<h3 class='h1 mb-3'>🥇 POLECANE</h3>";
                 echo "<form action='index_user.php' method='get'>
                 <div class='align-items-center'>";

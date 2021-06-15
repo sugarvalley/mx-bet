@@ -9,3 +9,5 @@ while ($row = mysqli_fetch_row($result)) {
     $categories[] = $row;
 }
 
+mysqli_close($db);
+

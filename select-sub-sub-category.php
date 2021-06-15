@@ -10,3 +10,5 @@ $subsubcategories = [];
 while ($row = mysqli_fetch_row($result2)) {
     $subsubcategories[] = $row;
 }
+
+mysqli_close($db);

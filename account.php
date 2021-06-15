@@ -43,3 +43,5 @@ foreach ($coupons as $id => $coupon) {foreach ($coupon as $value) {
        echo "<h3 class='h4 mb-3'>🏷 Ilość kuponów: " . $value . "</h3><a href='coupons.php' class='h5 mb-3'>Zobacz swoje kupony</a>";
    }
 } }
+echo "<h3 class='h4 mb-3'><a href='coupons.php' class='h5 mb-3'>Doładuj środki</a></h3>";
+mysqli_close($db);

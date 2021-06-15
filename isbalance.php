@@ -1,11 +1,10 @@
 <?php
 $db = mysqli_connect("localhost", "root", "root");
 mysqli_select_db($db, "wprgmxbet");
-$bets = $_GET['id'];
-$stake = $_GET['stake'];
+$bets = $_POST['id'];
+$stake = $_POST['stake'];
 $balance_value = "";
 var_dump($bets);
-var_dump($stake);
 $balance = "SELECT balance from user WHERE login = '" . $_SESSION['username'] . "'";
 $result_balance = mysqli_query($db, $balance);
 $balances = [];
@@ -30,6 +29,5 @@ if ($stake > $balance_value) {
         echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
         echo "<h3 class='h3 mb-3'>Coś poszło nie tak...</h3>";
     }
-
 }
-
+mysqli_close($db);

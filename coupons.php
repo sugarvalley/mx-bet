@@ -10,12 +10,6 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['username']);
     header("location: login.php");
 }
-
-if (isset($_GET['choice'])) {
-    $choices = [];
-    $choices[] = $_GET['choice'];
-}
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">

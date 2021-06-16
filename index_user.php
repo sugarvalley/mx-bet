@@ -10,17 +10,6 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['username']);
     header("location: login.php");
 }
-
-//if (isset($_POST['choice'])) {
-//    $choices = [];
-//    $choices[] = $_POST['choice'];
-//}
-//
-//if (isset($_POST['id'])) {
-//    $bets = [];
-//    $bets[] = $_POST['id'];
-//}
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
@@ -31,7 +20,7 @@ if (isset($_GET['logout'])) {
 <?php include("navbar-logged.php"); ?>
     <main class="main-content">
         <main class="main-filter">
-    <div class="flex-shrink-0 p-3" style="width: 400px;" id="list-colors">
+    <div class="flex-shrink-0 p-3" style="width: 350px;" id="list-colors">
         <form action="index_user.php" method="post">
         <ul class="list-unstyled ps-0">
             <li class="mb-1">

@@ -1,7 +1,6 @@
 <?php
 $bets = $_POST['id'];
 $stake = $_POST['stake'];
-var_dump($bets);
 if (empty($stake)) {
     echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
     echo "<h3 class='h3 mb-3'>Kwota zakładu nie może być pusta!</h3>";
@@ -18,9 +17,12 @@ if (empty($stake)) {
     while ($row = mysqli_fetch_row($result_balance)) {
         $balances[] = $row;
     }
-    foreach ($balances as $id => $balance) { foreach ($balance as $value) {
-        $balance_value = $value;
-    } }
+    foreach ($balances as $balance) {
+        foreach ($balance as $money) {
+            $balance_value = $money;
+
+        }
+    }
     if ($stake > $balance_value) {
         echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
         echo "<h3 class='h3 mb-3'>Nie masz wystarczającej ilości pieniędzy na koncie</h3>";
@@ -28,10 +30,31 @@ if (empty($stake)) {
     } else {
         $balance_value = $balance_value - $stake;
         $sql = "UPDATE user SET balance = '" . $balance_value . "' WHERE login = '" . $_SESSION['username'] . "'";
-        $result_sql = mysqli_query($db, $sql);
+        $getuserid = "SELECT id_user FROM user WHERE login = '" . $_SESSION['username'] . "'";
+        $result_userid = mysqli_query($db, $getuserid);
+        $userid = [];
+        while ($row = mysqli_fetch_row($result_userid)) {
+            $userid[] = $row;
+        }
         if ($db->query($sql) === TRUE) {
-            echo "<h3 class='h1 mb-3'>🎈 Pomyślnie obstawiono kupon!</h3>";
-            echo "<h3 class='h3 mb-3'>Szczegółowy opis kuponu:</h3>";
+            $addcoupon = "INSERT INTO `bet`(`user`, `stake`) VALUES('" . $userid[0][0] . "', '" . $stake . "')";
+            if ($db->query($addcoupon) === TRUE) {
+                $couponid = mysqli_insert_id($db);
+                foreach ($bets as $bet => $odds) {
+                    $addbet = "INSERT INTO `users_choice`(`choices`, `bet`) VALUES('" . $odds . "', '" . $couponid . "')";
+                    $addbet_result = mysqli_query($db, $addbet);
+                    if ($addbet_result == FALSE) {
+                        echo "<h3 class='h1 mb-3'>❌ Nie udało się dodać zakładu</h3>";
+                        break;
+                    }
+                }
+                echo "<h3 class='h1 mb-3'>🎈 Pomyślnie obstawiono kupon!</h3>";
+                echo "<h3 class='h3 mb-3'>Szczegóły twojego kuponu:</h3>";
+                include("coupon-details.php");
+
+            } else {
+                echo "<h3 class='h1 mb-3'>❌ Nie udało się dodać kuponu</h3>";
+            }
         } else {
             echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
             echo "<h3 class='h3 mb-3'>Coś poszło nie tak...</h3>";

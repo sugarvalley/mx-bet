@@ -80,7 +80,7 @@ if (isset($_GET['logout'])) {
                 echo "</div></form>";
             } else {
                 if (isset($_POST['id']) && isset($_POST['stake'])) {
-                include("isbalance.php");
+                include("add-coupon.php");
             } else if (isset($_POST['id'])) {
                     echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
                     echo "<h3 class='h3 mb-3'>Musisz ustalić kwotę zakładu!</h3>";

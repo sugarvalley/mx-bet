@@ -4,8 +4,8 @@ mysqli_select_db($db, "wprgmxbet");
 $name = "SELECT name from user WHERE login = '" . $_SESSION['username'] . "'";
 $email = "SELECT email from user WHERE login = '" . $_SESSION['username'] . "'";
 $balance = "SELECT balance from user WHERE login = '" . $_SESSION['username'] . "'";
-$coupon = "SELECT COUNT(user) FROM bet LEFT JOIN user on user.id_user = bet.user WHERE
-            user.name = '" . $_SESSION['username'] . "'";
+$coupon = "SELECT COUNT(id_bet) FROM bet LEFT JOIN user on user.id_user = bet.user WHERE
+            user.login = '" . $_SESSION['username'] . "'";
 $result_name = mysqli_query($db, $name);
 $result_email = mysqli_query($db, $email);
 $result_balance = mysqli_query($db, $balance);

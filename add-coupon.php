@@ -51,7 +51,7 @@ if (empty($stake)) {
                 echo "<h3 class='h1 mb-3'>🎈 Pomyślnie obstawiono kupon!</h3>";
                 echo "<h3 class='h3 mb-3'>Szczegóły twojego kuponu:</h3>";
                 include("coupon-details.php");
-
+                echo "<h3><a class='h3 mb-3' href='index_user.php'>Obstaw kolejny kupon 🏷</a></h3>";
             } else {
                 echo "<h3 class='h1 mb-3'>❌ Nie udało się dodać kuponu</h3>";
             }

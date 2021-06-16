@@ -24,6 +24,4 @@ if (isset($_POST['money'])) {
         echo "<h3 class='h5 mb-3'>📌 Wprowadź kwotę > 0</h3>";
         echo "<br />";
     }
-} else {
-    header("coupons.php");
 }

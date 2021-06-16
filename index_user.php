@@ -78,19 +78,22 @@ if (isset($_GET['logout'])) {
                 <div class='align-items-center'>";
                 include("filter.php");
                 echo "</div></form>";
-            } else { if (isset($_POST['id'])) {
-                include("isbalance.php");
             } else {
-                if (isset($_POST['stake'])) {
+                if (isset($_POST['id']) && isset($_POST['stake'])) {
+                include("isbalance.php");
+            } else if (isset($_POST['id'])) {
                     echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
-                    echo "<h3 class='h3 mb-3'>Nie możesz obstawić kwoty bez zaznaczenia żadnego zakładu</h3>";
+                    echo "<h3 class='h3 mb-3'>Musisz ustalić kwotę zakładu!</h3>";
+                } else if (isset($_POST['stake'])) {
+                    echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
+                    echo "<h3 class='h3 mb-3'>Musisz zaznaczyć co najmniej 1 zakład</h3>";
+                } else {
+                    echo "<h3 class='h1 mb-3'>🥇 POLECANE</h3>";
+                    echo "<form action='index_user.php' method='get'>
+                    <div class='align-items-center'>";
+                    include("sponsored.php");
+                    echo "</div></form>";
                 }
-                echo "<h3 class='h1 mb-3'>🥇 POLECANE</h3>";
-                echo "<form action='index_user.php' method='get'>
-                <div class='align-items-center'>";
-                include("sponsored.php");
-                echo "</div></form>";
-            }
             }
             ?>
         </div>

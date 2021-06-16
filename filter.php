@@ -1,38 +1,13 @@
-<?
-if (!isset($_POST['choice'])) {
-    header("index_user.php");
-}
+<?php
 $db = mysqli_connect("localhost", "root", "root");
 mysqli_select_db($db, "wprgmxbet");
 $choices = $_POST['choice'];
 $dumbo = [];
 foreach ($choices as $choice => $value) {
     array_push($dumbo, explode("_", $value));
-//    array_push($dozer, explode("_", $value));
 }
-//$helpcat = [];
-//$helpsubcat = [];
-//foreach ($dozer as $doze) {
-//    if (array_search($doze[0], $helpcat) === FALSE) {
-//        array_push($helpcat, $doze[0]);
-//    } else {
-//        array_push($helpcat, ' ');
-//    }
-//    if (array_search($doze[1], $helpsubcat) === FALSE) {
-//        array_push($helpsubcat, $doze[1]);
-//    } else {
-//        array_push($helpsubcat, ' ');
-//    }
-//}
-//var_dump($dumbo);
-//echo "<br />";
-//var_dump($helpcat);
-//echo "<br />";
-//var_dump($helpsubcat);
-//$len = count($dozer);
-//echo "<br />";
-//var_dump($dozer);
-$temp = "";
+$temp1 = "";
+$temp2 = "";
 foreach ($dumbo as $dumbie => $dummo) {
     $sql = "SELECT bet_entity.name, bet_entity.data FROM bet_entity LEFT JOIN category ON bet_entity.category = category.id_category 
     LEFT JOIN sub_category ON bet_entity.sub_category = sub_category.id_sub_category LEFT JOIN sub_sub_category ON
@@ -116,3 +91,4 @@ echo "<div class='card-body'><label for='stake-input'>Kwota</label>
         </div>
       <button type='submit' class='btn-dark btn'>OBSTAW</button></div>";
 mysqli_close($db);
+?>

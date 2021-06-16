@@ -89,7 +89,7 @@ if (isset($_GET['logout'])) {
                     echo "<h3 class='h3 mb-3'>Musisz zaznaczyć co najmniej 1 zakład</h3>";
                 } else {
                     echo "<h3 class='h1 mb-3'>🥇 POLECANE</h3>";
-                    echo "<form action='index_user.php' method='get'>
+                    echo "<form action='index_user.php' method='post'>
                     <div class='align-items-center'>";
                     include("sponsored.php");
                     echo "</div></form>";

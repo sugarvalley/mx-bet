@@ -1,12 +1,16 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
 $bets = $_POST['id'];
 $stake = $_POST['stake'];
-if ($stake >= 0 or empty($stake)) {
+var_dump($bets);
+if (empty($stake)) {
     echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
-    echo "<h3 class='h3 mb-3'>Kwota zakładu musi być większa od 0!</h3>";
+    echo "<h3 class='h3 mb-3'>Kwota zakładu nie może być pusta!</h3>";
+} else if ($stake <= 0) {
+    echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
+    echo "<h3 class='h3 mb-3'>Kwota zakładu nie może być mniejsza od zera!</h3>";
 } else {
+    $db = mysqli_connect("localhost", "root", "root");
+    mysqli_select_db($db, "wprgmxbet");
     $balance_value = "";
     $balance = "SELECT balance from user WHERE login = '" . $_SESSION['username'] . "'";
     $result_balance = mysqli_query($db, $balance);
@@ -33,5 +37,5 @@ if ($stake >= 0 or empty($stake)) {
             echo "<h3 class='h3 mb-3'>Coś poszło nie tak...</h3>";
         }
     }
+    mysqli_close($db);
 }
-mysqli_close($db);

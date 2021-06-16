@@ -2,12 +2,11 @@
 $db = mysqli_connect("localhost", "root", "root");
 mysqli_select_db($db, "wprgmxbet");
 $choices = $_POST['choice'];
+
 $dumbo = [];
 foreach ($choices as $choice => $value) {
     array_push($dumbo, explode("_", $value));
 }
-$temp1 = "";
-$temp2 = "";
 foreach ($dumbo as $dumbie => $dummo) {
     $sql = "SELECT bet_entity.name, bet_entity.data FROM bet_entity LEFT JOIN category ON bet_entity.category = category.id_category 
     LEFT JOIN sub_category ON bet_entity.sub_category = sub_category.id_sub_category LEFT JOIN sub_sub_category ON
@@ -61,7 +60,7 @@ foreach ($dumbo as $dumbie => $dummo) {
                 <tr>";
         foreach ($ids_bet_entity as $cols => $ids) {
             foreach ($ids as $values) {
-                $sql4 = "SELECT odds FROM choices LEFT JOIN bet_entity ON choices.bet_entity = bet_entity.id_bet_entity
+                $sql4 = "SELECT id_choices, odds FROM choices LEFT JOIN bet_entity ON choices.bet_entity = bet_entity.id_bet_entity
                         WHERE choices.bet_entity = '" . $values . "'";
                 $result4 = mysqli_query($db, $sql4);
                 $bet_odds = [];
@@ -69,11 +68,8 @@ foreach ($dumbo as $dumbie => $dummo) {
                     $bet_odds[] = $row;
                 }
                 foreach ($bet_odds as $odd) {
-                    foreach ($odd as $value) {
-                        echo "<th scope='row'><input type='radio' 
-                        name='id[" . $values . "]' value='" . $values . "_" . $value . "'>" . $value . "</th>";
-                    }
-
+                    echo "<th scope='row'><input type='radio' 
+                        name='id[" . $values . "]' value='" . $odd[0]. "'>&nbsp" . $odd[1] . "</th>";
                 }
             }
         }
@@ -91,4 +87,3 @@ echo "<div class='card-body'><label for='stake-input'>Kwota</label>
         </div>
       <button type='submit' class='btn-dark btn'>OBSTAW</button></div>";
 mysqli_close($db);
-?>

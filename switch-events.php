@@ -4,12 +4,21 @@ switch ($_POST['event']) {
         include("change-amount.php");
         break;
     case 2:
-        include("add-event.php");
+        include("add-bet.php");
         break;
     case 3:
-        include("add-result.php");
+        include("add-event.php");
         break;
     case 4:
+        include("add-category.php");
+        break;
+    case 5:
+        include("add-region.php");
+        break;
+    case 6:
+        include("add-result.php");
+        break;
+    case 7:
         include("see-stats.php");
         break;
 }

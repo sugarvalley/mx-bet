@@ -33,13 +33,22 @@ if (isset($_GET['logout'])) {
                         <button type="submit" value="1" name="event" class="btn-lg btn-toggle" style="color: #14213d;">💳 Zmień stan konta</button>
                     </li>
                     <li class="mb-1">
-                        <button type="submit" value="2" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🎪 Stwórz nowe wydarzenie</button>
+                        <button type="submit" value="2" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🥇 Stwórz nowy zakład</button>
                     </li>
                     <li class="mb-1">
-                        <button type="submit" value="3" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🔮 Dodaj wynik zakładu</button>
+                        <button type="submit" value="3" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🎪 Dodaj nowe wydarzenie</button>
                     </li>
                     <li class="mb-1">
-                        <button type="submit" value="4" name="event" class="btn-lg btn-toggle" style="color: #14213d;">📈 Zobacz statystyki</button>
+                        <button type="submit" value="4" name="event" class="btn-lg btn-toggle" style="color: #14213d;">⚽ Dodaj nową kategorię</button>
+                    </li>
+                    <li class="mb-1">
+                        <button type="submit" value="5" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🌎 Dodaj nowy region</button>
+                    </li>
+                    <li class="mb-1">
+                        <button type="submit" value="6" name="event" class="btn-lg btn-toggle" style="color: #14213d;">🔮 Dodaj wynik zakładu</button>
+                    </li>
+                    <li class="mb-1">
+                        <button type="submit" value="7" name="event" class="btn-lg btn-toggle" style="color: #14213d;">📈 Zobacz statystyki</button>
                     </li>
                 </ul>
             </form>

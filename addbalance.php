@@ -13,7 +13,6 @@ if (isset($_POST['money'])) {
         if ($currentbalance < 500) {
             $currentbalance += $amount;
             $sql = "UPDATE user SET balance = '" . $currentbalance . "' WHERE login = '" . $_SESSION['username'] . "'";
-            $result_sql = mysqli_query($db, $sql);
             if ($db->query($sql) === TRUE) {
                 echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie dodano środki!</h3></div>";
             } else {

@@ -57,6 +57,9 @@ if (isset($_GET['logout'])) {
     <main class="main-results">
         <div class="flex-shrink-0 p-3">
             <?php
+            include("add-event2.php");
+            include("add-category2.php");
+            include("add-region2.php");
             include("change-amount2.php");
             include("add-bet2.php");
             if(!isset($_POST['event'])) {

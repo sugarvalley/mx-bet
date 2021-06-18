@@ -14,7 +14,6 @@ if (isset($_POST['user']) && isset($_POST['money'])) {
             if ($user == $_POST['user']) {
                 if ($_POST['money'] >= 0) {
                     $sql_balance = "UPDATE user SET balance = '" . $_POST['money'] . "' WHERE login = '" . $_POST['user'] . "'";
-                    $result_sql = mysqli_query($db, $sql);
                     if ($db->query($sql_balance) === TRUE) {
                         echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie zmieniono balans!</h3></div>";
                     } else {

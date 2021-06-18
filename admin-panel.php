@@ -61,11 +61,12 @@ if (isset($_GET['logout'])) {
             include("add-category2.php");
             include("add-region2.php");
             include("change-amount2.php");
+            include("add-bet5.php");
             include("add-bet2.php");
-            if(!isset($_POST['event'])) {
+            if(!isset($_POST['event']) && !isset($_POST['bet-name'])) {
                echo "<h3 class='mb-3 h1 fw-normal'>🎈 Miło Cię widzieć, " . $_SESSION['username'] . "!</h3>
                <h3 class='mb-3 h3 fw-normal'>⬅ Wybierz z listy, co chciałbyś zrobić</h3>";
-            } else {
+            } elseif (isset($_POST['event'])) {
               include("switch-events.php");
             }
             ?>

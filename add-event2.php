@@ -19,6 +19,7 @@ if (isset($_POST['event-name'])) {
         } else {
             echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Nie udało się dodać wydarzenia</h3></div>";
         }
+        mysqli_close($db);
     } else {
         echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Podane wydarzenie już istnieje!</h3></div>";
     }

@@ -10,13 +10,17 @@ if (isset($_POST['money'])) {
                 $currentbalance = $value;
             }
         }
-        $currentbalance += $amount;
-        $sql = "UPDATE user SET balance = '" . $currentbalance . "' WHERE login = '" . $_SESSION['username'] . "'";
-        $result_sql = mysqli_query($db, $sql);
-        if ($db->query($sql) === TRUE) {
-            echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie dodano środki!</h3></div>";
+        if ($currentbalance < 500) {
+            $currentbalance += $amount;
+            $sql = "UPDATE user SET balance = '" . $currentbalance . "' WHERE login = '" . $_SESSION['username'] . "'";
+            $result_sql = mysqli_query($db, $sql);
+            if ($db->query($sql) === TRUE) {
+                echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie dodano środki!</h3></div>";
+            } else {
+                echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Nie udało się dodać środków</h3></div>";
+            }
         } else {
-            echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Nie udało się dodać środków</h3></div>";
+            echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Nie możesz już dodać więcej środków!</h3></div>";
         }
         mysqli_close($db);
     } else {

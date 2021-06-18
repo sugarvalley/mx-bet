@@ -55,7 +55,7 @@ if (isset($_GET['logout'])) {
             <br />
             <h3 class="h4 mb-3">💰 Podaj kwotę</h3>
                 <div class='input-group mb-2'>
-                    <input type='number' name='money' value='50' max="69">
+                    <input type='number' name='money' min="1" value='50' max="50">
                     <div class='input-group-prepend'>
                         <div class='input-group-text'>zł</div>
                     </div>

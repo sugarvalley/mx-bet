@@ -82,11 +82,11 @@ if (isset($_GET['logout'])) {
                 if (isset($_POST['id']) && isset($_POST['stake'])) {
                 include("add-coupon.php");
             } else if (isset($_POST['id'])) {
-                    echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
-                    echo "<h3 class='h3 mb-3'>Musisz ustalić kwotę zakładu!</h3>";
+                    echo "<div class='alert alert-danger' role='alert'><h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
+                    echo "<h3 class='h3 mb-3'>Musisz ustalić kwotę zakładu!</h3></div>";
                 } else if (isset($_POST['stake'])) {
-                    echo "<h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
-                    echo "<h3 class='h3 mb-3'>Musisz zaznaczyć co najmniej 1 zakład</h3>";
+                    echo "<div class='alert alert-danger' role='alert'><h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3>";
+                    echo "<h3 class='h3 mb-3'>Musisz zaznaczyć co najmniej 1 zakład</h3></div>";
                 } else {
                     echo "<h3 class='h1 mb-3'>🥇 POLECANE</h3>";
                     echo "<form action='index_user.php' method='post'>
@@ -115,7 +115,11 @@ if (isset($_GET['logout'])) {
             <br />
             <br />
             <h3 class="h3 mb-3 fw-normal">TWOJE KONTO</h3>
-            <?php include("account.php") ?>
+            <?php include("account.php");
+            if ($_SESSION['username'] == 'admin') {
+                echo "<a href='admin-panel.php' class='h5 mb-3'>Admin panel</a>";
+            }
+            ?>
         </div>
     </main>
     </main>

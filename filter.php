@@ -79,8 +79,9 @@ foreach ($dumbo as $dumbie => $dummo) {
     }
     echo "</div>";
 }
-echo "<div class='card-body'><label for='stake-input'>Kwota</label>
+echo "<div class='card-body' style='float: right;'>
       <div class='input-group mb-2'>
+      <label for='stake-input' class='h3 fw-normal'>KWOTA&nbsp</label>
             <input type='number' name='stake' value='10' id='stake-input'>
         <div class='input-group-prepend'>
           <div class='input-group-text'>zł</div>

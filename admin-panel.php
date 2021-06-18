@@ -58,6 +58,7 @@ if (isset($_GET['logout'])) {
         <div class="flex-shrink-0 p-3">
             <?php
             include("change-amount2.php");
+            include("add-bet2.php");
             if(!isset($_POST['event'])) {
                echo "<h3 class='mb-3 h1 fw-normal'>🎈 Miło Cię widzieć, " . $_SESSION['username'] . "!</h3>
                <h3 class='mb-3 h3 fw-normal'>⬅ Wybierz z listy, co chciałbyś zrobić</h3>";

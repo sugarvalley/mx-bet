@@ -31,10 +31,11 @@ if (isset($_GET['logout'])) {
                 <?php
                 foreach ($coupons as $id => $coupon) {foreach ($coupon as $value) {
                     if ($value > 0) {
+                        include("count-coupons.php");
                         echo "<h3 class='h3 mb-3 fw-normal'>STATYSTYKI</h3>
                             <h3 class='h5 mb-3'>🎉 Obstawione kupony: " . $value . "</h3>
-                            <h3 class='h5 mb-3'>🎉 Wygrane kupony: 0</h3>
-                            <h3 class='h5 mb-3'>'🎉 Łącznie już wygrałeś: 0zł</h3>";
+                            <h3 class='h5 mb-3'>🎉 Zakończone kupony: ". $finished[0]."</h3>
+                            <h3 class='h5 mb-3'>🎉 Trwające kupony: ". $notfinished[0] ."</h3>";
                     }
                 } }
                 ?>

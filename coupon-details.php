@@ -21,6 +21,13 @@ while ($row = mysqli_fetch_row($result_select_balance)) {
     $balance[] = $row;
 }
 $userbalance = $balance[0][0];
+$sql_select_admin_balance = "SELECT balance FROM user WHERE user.login ='admin'";
+$result_select_admin_balance = mysqli_query($db, $sql_select_admin_balance);
+$admin_balance = [];
+while ($row = mysqli_fetch_row($result_select_admin_balance)) {
+    $admin_balance[] = $row;
+}
+$adminbalance = $admin_balance[0][0];
 $sql_count_bets = "SELECT COUNT(id_users_choice) FROM users_choice WHERE users_choice.bet='" . $couponid . "'";
 $result_count_bets = mysqli_query($db, $sql_count_bets);
 $count_bets = [];
@@ -124,7 +131,12 @@ if ($status[0][0] == 0) {
     } else {
         $sql_set_status = "UPDATE bet SET bet.status = '1' WHERE id_bet = '". $couponid . "'";
         if ($db->query($sql_set_status) === TRUE) {
+            $adminbalance += $stake;
+            $sql_add_admin = "UPDATE user SET balance = '". $adminbalance ."' 
+                WHERE user.login = 'admin'";
+            if ($db->query($sql_add_admin) === TRUE) {
                 echo "❌";
+            }
             }
         }
     echo "</th>

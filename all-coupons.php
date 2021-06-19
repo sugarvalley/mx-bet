@@ -21,3 +21,4 @@ foreach ($select_coupons as $coupons) {
         include ("coupon-details.php");
     }
 }
+mysqli_close($db);

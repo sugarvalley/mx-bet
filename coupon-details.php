@@ -118,6 +118,21 @@ if ($status[0][0] == 0) {
         if ($counter == 0) {
             $sql_set_status = "UPDATE bet SET status = '1' WHERE bet.id_bet = '". $couponid . "'";
             if ($db->query($sql_set_status) === TRUE) {
+                $reader = file_get_contents('highest-win.txt');
+                $reader = explode("\n", $reader);
+                $help = 1;
+                $record = "";
+                foreach ($reader as $row) {
+                    if ($help = 1) {
+                        $help++;
+                    } else {
+                        $record = $row;
+                    }
+                }
+                if (round($prize) > $record) {
+                    $txt = $_SESSION['username']."\n".$prize_format_francais;
+                    file_put_contents('highest-win.txt', $txt);
+                }
                 $userbalance += round($prize, 2);
                 $sql_add_prize = "UPDATE user SET balance = '". $userbalance ."' 
                 WHERE user.login = '". $_SESSION['username'] . "'";

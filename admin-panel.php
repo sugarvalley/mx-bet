@@ -60,6 +60,7 @@ if (isset($_GET['logout'])) {
             include("add-event2.php");
             include("add-category2.php");
             include("add-region2.php");
+            include("add-result2.php");
             include("change-amount2.php");
             include("add-bet5.php");
             include("add-bet2.php");

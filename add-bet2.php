@@ -17,19 +17,37 @@ if (isset($_POST['bet-name']) && isset($_POST['category']) && isset($_POST['sub-
     if ($counter_bet != 0) {
         $db = mysqli_connect("localhost", "root", "root");
         mysqli_select_db($db, "wprgmxbet");
-        $sql_cat = "SELECT category.name FROM category LEFT JOIN bet_entity ON category.id_category = bet_entity.category
-                   WHERE bet_entity.name = '" . $bet_name . "'";
-        $result_sql_cat = mysqli_query($db, $sql_cat);
-        $warnings = [];
-        while ($row = mysqli_fetch_row($result_sql_cat)) {
-            $warnings[] = $row;
+        $sql_val = "SELECT bet_entity.category, bet_entity.sub_category, bet_entity.sub_sub_category, bet_entity.data FROM bet_entity 
+            WHERE bet_entity.name = '" . $bet_name . "'";
+        $result_sql_val = mysqli_query($db, $sql_val);
+        $values = [];
+        while ($row = mysqli_fetch_row($result_sql_val)) {
+            $values[] = $row;
         }
-        mysqli_close($db);
-        if (empty($warnings)) {
-            include("add-bet3.php");
+        $sql_cat = "SELECT category.name FROM category WHERE category.id_category = '" . $values[0][0] . "'";
+        $result_sql_cat = mysqli_query($db, $sql_cat);
+        $cats = [];
+        while ($row = mysqli_fetch_row($result_sql_cat)) {
+            $cats[] = $row;
+        }
+        $sql_subcat = "SELECT sub_category.name FROM sub_category WHERE sub_category.id_sub_category = '" . $values[0][1] . "'";
+        $result_sql_subcat = mysqli_query($db, $sql_subcat);
+        $subcats = [];
+        while ($row = mysqli_fetch_row($result_sql_subcat)) {
+            $subcats[] = $row;
+        }
+        $sql_subsubcat = "SELECT sub_sub_category.name FROM sub_sub_category WHERE sub_sub_category.id_sub_sub_category = '" . $values[0][2] . "'";
+        $result_sql_subsubcat = mysqli_query($db, $sql_subsubcat);
+        $subsubcats = [];
+        while ($row = mysqli_fetch_row($result_sql_subsubcat)) {
+            $subsubcats[] = $row;
+        }
+        if ($cats[0][0] = $category_name && $subcats[0][0] = $region_name && $subsubcats[0][0] = $event_name
+                    && $values[0][3] = $event_date) {
+            echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ Dokładnie takie samo 
+            wydarzenie juz istnieje!</h3></div>";
         } else {
-            echo "<div class='alert alert-danger' role='alert'><h3 class='h4 mb-3'>❌ W kategorii " . $category_name .
-                " istnieje już wydarzenie o takiej nazwie</h3></div>";
+            include("add-bet3.php");
         }
     } else {
         include("add-bet3.php");

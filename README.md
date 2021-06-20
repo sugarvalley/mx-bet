@@ -7,9 +7,7 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 - [ ] remote available
 
 #### 💼 Accounts
-- [ ] create an account
-  - [ ] password validation
-  - [ ] email validation
+- [x] create an account
   - [x] checking if login and email are UNIQUE
   - [x] add record to database
 - [x] sign in
@@ -53,10 +51,10 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 
 
 #### 📝 Newsletter
-- [ ] after creating a coupon send details to user via email
-- [ ] after adding a result send result details to users with such bet
-- [ ] send info if coupon won or lost ?
-- [ ] send info about user's balance
+- [x] after creating a coupon send details to user via email
+- [x] after adding a result send result details to users with such bet
+- [x] send info if coupon won or lost ?
+- [x] send info about user's balance
 
 
 #### ✨ Additional functionalities
@@ -66,7 +64,7 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 - [x] multibet - the more bets on one coupon the highest potential prize
 - [x] account details on user's page
 - [x] coupons details on user's page
-- [ ] user's stats - coupons won, all coupons, etc.
+- [x] user's stats - coupons won, all coupons, etc.
 - [x] showing sponsored events on user's main page
 
 ## 📚 Database

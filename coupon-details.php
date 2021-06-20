@@ -147,7 +147,7 @@ if ($status[0][0] == 0) {
                     $to_email = $userinfos[0][0] . " <" . $userinfos[0][1] . ">";
                     $subject = "Wygrany kupon #" . $couponid . "! Gratulacje!";
                     $message = "Gratulujemy, właśnie dodaliśmy do twojego konta " . $prize_format_francais . "zł, 
-                    ponieważ twój kupon o numerze " . $couponid . " został oznaczony jako wygrany!\nTwój stan konta: ". $userbalance ." zł. \nDziękujemy za 
+                    ponieważ twój kupon o numerze " . $couponid . " został oznaczony jako wygrany!\n\nDziękujemy za 
                     korzystanie z naszej strony.\nPozdrawiamy, zespół MXBET";
                     $headers = "From: mxbet@gmail.com";
                     mail($to_email, $subject, $message, $headers);

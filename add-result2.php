@@ -27,7 +27,7 @@ if (isset($_POST['bet-entity-id'])) {
                     $bet_entity_names[] = $row;
                 }
                 $sql_winner_bet = "SELECT choice FROM choices LEFT JOIN bet_entity ON bet_entity.id_bet_entity=
-                                            choices.bet_entity WHERE choices.has_won='1' AND bet_entity.id_bet_entity=''". $value ."''";
+                                            choices.bet_entity WHERE choices.has_won='1' AND bet_entity.id_bet_entity='". $value ."'";
                 $result_winner_bet = mysqli_query($db, $sql_winner_bet);
                 $winners_bet = [];
                 while ($row = mysqli_fetch_row($result_winner_bet)) {
@@ -44,7 +44,7 @@ if (isset($_POST['bet-entity-id'])) {
                         $to_email = $userinfos[0][0] . " <" . $userinfos[0][1] . ">";
                         $subject = "Nowy wynik zakładu #" . $value . "!";
                         $message = "Właśnie dodaliśmy nowy wynik zakładu i myślimy, że może to cię interesować!\n
-                        ". $bet_entity_names[0][0] ." - WYNIK/WYGRANY: ". $winners_bet[0][0] ."\nDziękujemy za korzystanie z naszej strony.
+                        ". $bet_entity_names[0][0] ." - WYNIK/WYGRANY: ". $winners_bet[0][0] ."\n\nDziękujemy za korzystanie z naszej strony.
                         \nPozdrawiamy, zespół MXBET";
                         $headers = "From: mxbet@gmail.com";
                         mail($to_email, $subject, $message, $headers);

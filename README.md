@@ -4,7 +4,7 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 ## 🎈 Requirements
 
 #### 🌐 Hosting
-- [ ] remote available
+- [x] remote available - DEPLOYMENT ON HEROKU
 
 #### 💼 Accounts
 - [x] create an account

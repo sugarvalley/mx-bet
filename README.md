@@ -50,7 +50,7 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 - [x] add new event
 
 
-#### 📝 Newsletter
+#### 📝 Newsletter ONLY ON LOCALHOST
 - [x] after creating a coupon send details to user via email
 - [x] after adding a result send result details to users with such bet
 - [x] send info if coupon won or lost ?

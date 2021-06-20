@@ -50,6 +50,10 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 - [x] add new event
 - [x] see statistics
 
+#### Admin panel overview     
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/76202102/122688666-ed2d8500-d21d-11eb-9429-83e2d5aa2eed.gif)
+
+
 
 #### 📝 Newsletter ONLY ON LOCALHOST
 - [x] after creating a coupon send details to user via email
@@ -63,7 +67,7 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
     ![email 2](https://user-images.githubusercontent.com/76202102/122684671-0bd45180-d207-11eb-9b3b-91677566d10f.PNG)
 - [x] send info about user's balance (above)
 
-Screenshot from my inbox
+#### Screenshot from my inbox
 ![email](https://user-images.githubusercontent.com/76202102/122684637-ce6fc400-d206-11eb-9eff-6edf24ab57f2.PNG)
 
 

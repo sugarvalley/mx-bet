@@ -48,13 +48,27 @@ a project for php classes - bookmacher site (modeled on the LV BET site)
 - [x] add new category
 - [x] add new region
 - [x] add new event
+- [x] see statistics
 
 
 #### 📝 Newsletter ONLY ON LOCALHOST
 - [x] after creating a coupon send details to user via email
+  ![email 4](https://user-images.githubusercontent.com/76202102/122684699-3de5b380-d207-11eb-9d22-57076ec9ea7a.PNG)
 - [x] after adding a result send result details to users with such bet
+  ![email 1](https://user-images.githubusercontent.com/76202102/122684659-f3643700-d206-11eb-960d-800addcdcd04.PNG) 
 - [x] send info if coupon won or lost ?
-- [x] send info about user's balance
+  -  Coupon lost:
+     ![email 3](https://user-images.githubusercontent.com/76202102/122684697-3c1bf000-d207-11eb-9e3e-1792adbf2b40.PNG)
+  - Coupon won:
+    ![email 2](https://user-images.githubusercontent.com/76202102/122684671-0bd45180-d207-11eb-9b3b-91677566d10f.PNG)
+- [x] send info about user's balance (above)
+
+Screenshot from my inbox
+![email](https://user-images.githubusercontent.com/76202102/122684637-ce6fc400-d206-11eb-9eff-6edf24ab57f2.PNG)
+
+
+
+
 
 
 #### ✨ Additional functionalities

@@ -8,7 +8,7 @@ $fname = "";
 $errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', 'root', 'wprgmxbet');
+$db = mysqli_connect($_ENV['DATABASE_HOSTNAME'], $_ENV['DATABASE_USERNAME'], $_ENV['DATABASE_PASSWORD'], $_ENV['DATABASE_NAME']);
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {

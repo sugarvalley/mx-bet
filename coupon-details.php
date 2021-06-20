@@ -114,6 +114,12 @@ if ($status[0][0] == 0) {
     }
     echo "</th>
         <th scope='col'>";
+    $userinfo = "SELECT name, email FROM user WHERE user.login='". $_SESSION['username'] . "'";
+    $resultinfo = mysqli_query($db, $userinfo);
+    $userinfos = [];
+    while ($row = mysqli_fetch_row($resultinfo)) {
+        $userinfos[] = $row;
+    }
     if ($flag) {
         if ($counter == 0) {
             $sql_set_status = "UPDATE bet SET status = '1' WHERE bet.id_bet = '". $couponid . "'";
@@ -138,6 +144,13 @@ if ($status[0][0] == 0) {
                 WHERE user.login = '". $_SESSION['username'] . "'";
                 if ($db->query($sql_add_prize) === TRUE) {
                     echo "🏆";
+                    $to_email = $userinfos[0][0] . " <" . $userinfos[0][1] . ">";
+                    $subject = "Wygrany kupon #" . $couponid . "! Gratulacje!";
+                    $message = "Gratulujemy, właśnie dodaliśmy do twojego konta " . $prize_format_francais . "zł, 
+                    ponieważ twój kupon o numerze " . $couponid . " został oznaczony jako wygrany!\nTwój stan konta: ". $userbalance ." zł. \nDziękujemy za 
+                    korzystanie z naszej strony.\nPozdrawiamy, zespół MXBET";
+                    $headers = "From: mxbet@gmail.com";
+                    mail($to_email, $subject, $message, $headers);
                 }
             }
         } else {
@@ -151,6 +164,12 @@ if ($status[0][0] == 0) {
                 WHERE user.login = 'admin'";
             if ($db->query($sql_add_admin) === TRUE) {
                 echo "❌";
+                $to_email = $userinfos[0][0] . " <" . $userinfos[0][1] . ">";
+                $subject = "Przegrany kupon #" . $couponid . "!";
+                $message = "Przykro nam, ale właśnie oznaczyliśmy twój kupon o numerze " . $couponid . " jako przegrany.\n
+                 Twój stan konta: ". $balance[0][0] ." zł. \nŻyczymy powodzenia w następnych zakładach! \nDziękujemy za korzystanie z naszej strony.\nPozdrawiamy, zespół MXBET";
+                $headers = "From: mxbet@gmail.com";
+                mail($to_email, $subject, $message, $headers);
             }
             }
         }

@@ -16,7 +16,7 @@ if (isset($_POST['choice-name1']) && isset($_POST['choice-name2'])
     $odds[] = $odd2;
     if (!empty($_POST['choice-name3']) && !empty($_POST['odd3'])) {
         $choice_name3 = $_POST['choice-name3'];
-        $odd3 = $_POST['choice-name3'];
+        $odd3 = $_POST['odd3'];
         $choices[] = $choice_name3;
         $odds[] = $odd3;
     }

@@ -20,8 +20,13 @@ if (empty($stake)) {
     foreach ($balances as $balance) {
         foreach ($balance as $money) {
             $balance_value = $money;
-
         }
+    }
+    $userinfo = "SELECT name, email FROM user WHERE user.login='". $_SESSION['username'] . "'";
+    $resultinfo = mysqli_query($db, $userinfo);
+    $userinfos = [];
+    while ($row = mysqli_fetch_row($resultinfo)) {
+        $userinfos[] = $row;
     }
     if ($stake > $balance_value) {
         echo "<div class='alert alert-danger' role='alert'><h3 class='h1 mb-3'>❌ Nie udało się obstawić kuponu</h3></div>";
@@ -52,6 +57,13 @@ if (empty($stake)) {
                 echo "<h3 class='h3 mb-3'>Szczegóły twojego kuponu:</h3>";
                 include("coupon-details.php");
                 echo "<h3><a class='h3 mb-3' href='index_user.php'>Obstaw kolejny kupon 🏷</a></h3>";
+                $to_email = $userinfos[0][0] . " <" . $userinfos[0][1] . ">";
+                $subject = "Nowy kupon #" . $couponid . "!";
+                $message = "Właśnie obstawiłeś nowy kupon o numerze " . $couponid . "!\nOto jego szczegóły: \nKUPON #". $couponid
+                    . "\n- Ilość zakładów ". $count_bets[0][0] ."\n- Stawka ". $stake ."zł\n- Potencjalna wygrana ". $prize_format_francais .
+                    "zł \nŻyczymy powodzenia!\nDziękujemy za korzystanie z naszej strony.\nPozdrawiamy, zespół MXBET";
+                $headers = "From: mxbet@gmail.com";
+                mail($to_email, $subject, $message, $headers);
             } else {
                 echo "<div class='alert alert-danger' role='alert'><h3 class='h1 mb-3'>❌ Nie udało się dodać kuponu</h3></div>";
             }

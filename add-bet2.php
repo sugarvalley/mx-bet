@@ -15,8 +15,7 @@ if (isset($_POST['bet-name']) && isset($_POST['category']) && isset($_POST['sub-
         }
     }
     if ($counter_bet != 0) {
-        $db = mysqli_connect("localhost", "root", "root");
-        mysqli_select_db($db, "wprgmxbet");
+        include("db-connection.php");
         $sql_val = "SELECT bet_entity.category, bet_entity.sub_category, bet_entity.sub_sub_category, bet_entity.data FROM bet_entity 
             WHERE bet_entity.name = '" . $bet_name . "'";
         $result_sql_val = mysqli_query($db, $sql_val);

@@ -3,8 +3,7 @@ if (isset($_POST['money'])) {
     $amount = $_POST['money'];
     if ($amount >= 0) {
         $currentbalance = "";
-        $db = mysqli_connect("localhost", "root", "root");
-        mysqli_select_db($db, "wprgmxbet");
+        include("db-connection.php");
         foreach ($balances as $id => $balance) {
             foreach ($balance as $value) {
                 $currentbalance = $value;

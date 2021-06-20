@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include ("db-connection.php");
 $name = "SELECT name from user WHERE login = '" . $_SESSION['username'] . "'";
 $email = "SELECT email from user WHERE login = '" . $_SESSION['username'] . "'";
 $balance = "SELECT balance from user WHERE login = '" . $_SESSION['username'] . "'";

@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['user']) && isset($_POST['money'])) {
-    $db = mysqli_connect("localhost", "root", "root");
-    mysqli_select_db($db, "wprgmxbet");
+    include("db-connection.php");
     $sql = "SELECT DISTINCT(login) FROM user ORDER BY login";
     $sql_result = mysqli_query($db, $sql);
     $usernames = [];

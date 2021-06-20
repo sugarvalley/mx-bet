@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql_select_coupons = "SELECT id_bet from bet LEFT JOIN user ON bet.user = user.id_user 
                     WHERE user.login ='" . $_SESSION['username'] . "' ORDER BY id_bet DESC";
 $result_select_coupons = mysqli_query($db, $sql_select_coupons);

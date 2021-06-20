@@ -1,8 +1,7 @@
 <h3 class="mb-3 h1">🎆 DODAJ WYNIK ZAKŁADU</h3>
 <h3 class='mb-3 h4'>(Zaznacz zwycięzcę lub remis  🥇)</h3>
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql_old_bets = "SELECT DISTINCT bet_entity.id_bet_entity, bet_entity.name, bet_entity.data FROM bet_entity LEFT JOIN
     choices ON choices.bet_entity = bet_entity.id_bet_entity WHERE bet_entity.data < '" . date('Y/m/d H:i:s') . "' AND
  bet_entity.status = '0'";

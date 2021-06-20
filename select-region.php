@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql1 = "SELECT name FROM sub_category";
 $result1 = mysqli_query($db, $sql1);
 $subcategories = [];

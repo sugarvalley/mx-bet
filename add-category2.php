@@ -11,8 +11,7 @@ if (isset($_POST['category-name'])) {
         }
     }
     if ($counter == 0) {
-        $db = mysqli_connect("localhost", "root", "root");
-        mysqli_select_db($db, "wprgmxbet");
+        include("db-connection.php");
         $sql = "INSERT INTO category(name) VALUES ('". $category_name . "')";
         if ($db->query($sql) === TRUE) {
             echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie dodano kategorię!</h3></div>";

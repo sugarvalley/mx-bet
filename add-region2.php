@@ -11,8 +11,7 @@ if (isset($_POST['region-name'])) {
         }
     }
     if ($counter == 0) {
-        $db = mysqli_connect("localhost", "root", "root");
-        mysqli_select_db($db, "wprgmxbet");
+        include("db-connection.php");
         $sql = "INSERT INTO sub_category(name) VALUES ('". $region_name . "')";
         if ($db->query($sql) === TRUE) {
             echo "<div class='alert alert-success' role='alert'><h3 class='h4 mb-3'>🎈 Pomyślnie dodano region!</h3></div>";

@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql_select_odds = "SELECT odds from choices LEFT JOIN users_choice ON users_choice.choices = choices.id_choices 
                 WHERE users_choice.bet = '" . $couponid . "'";
 $result_select_odds = mysqli_query($db, $sql_select_odds);

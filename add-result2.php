@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['bet-entity-id'])) {
-    $db = mysqli_connect("localhost", "root", "root");
-    mysqli_select_db($db, "wprgmxbet");
+    include("db-connection.php");
     $bets = $_POST['bet-entity-id'];
     $counter = count($bets);
     $id_bet_entity = array_keys($bets);

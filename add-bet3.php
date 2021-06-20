@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql_category = "SELECT id_category FROM category WHERE category.name = '" . $category_name . "'";
 $result_category = mysqli_query($db, $sql_category);
 $id_categories = [];

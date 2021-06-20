@@ -1,8 +1,7 @@
 <?php
 if (isset($_POST['choice-name1']) && isset($_POST['choice-name2'])
     && isset($_POST['odd1']) && isset($_POST['odd2'])) {
-    $db = mysqli_connect("localhost", "root", "root");
-    mysqli_select_db($db, "wprgmxbet");
+    include("db-connection.php");
     $id_bet_entity = $_POST['id_bet_entity'];
     $choices = [];
     $odds = [];

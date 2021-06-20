@@ -1,6 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "root");
-mysqli_select_db($db, "wprgmxbet");
+include("db-connection.php");
 $sql_allcoupons = "SELECT COUNT(id_bet) FROM bet";
 $result_allcoupons = mysqli_query($db, $sql_allcoupons);
 $allcoupons = [];
@@ -38,13 +37,6 @@ while ($row = mysqli_fetch_row($result_admin)) {
 
 $reader = file_get_contents('highest-win.txt');
 $reader = explode("\n", $reader);
-
-
-//$to_email = 'cqrkowa@gmail.com <cqrkowa@gmail.com>';
-//$subject = 'Testing PHP Mail';
-//$message = 'This mail is sent using the PHP mail function';
-//$headers = 'From: noreply@gmail.com';
-//mail($to_email, $subject, $message, $headers);
 ?>
 <h3 class="mb-3 h1">STATYSTYKI</h3>
 <h3 class="mb-3 h3">WSZYSTKICH OBSTAWIONYCH KUPONÓW</h3>
